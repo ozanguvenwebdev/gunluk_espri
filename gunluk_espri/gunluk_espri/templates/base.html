@@ -18,13 +18,15 @@
     <link rel="stylesheet" href="{% static 'css/revolution/navigation.css' %}">
     <link rel="stylesheet" href="{% static 'css/revolution/settings.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 {% block content %}{% endblock content %}
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+{% comment %} <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script> {% endcomment %}
 <!--Bootstrap Core-->
 <script src="{% static 'js/propper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>

@@ -13,14 +13,13 @@
 <!--PreLoader Ends-->
 {% Header %}
 <!--Page Header-->
-<!--Page Header ends -->
 <!-- Services us -->
-<section id="our-services" class="padding bglight">
+<section id="our-services" class="padding bglight" style="padding:2.5rem 0;">
     <div class="container">
         <div class="row whitebox top15">
             <div class="col-lg-3 col-md-3">
                 <div class="image widget bottom20">
-                    <img alt="SEO" src="{% static 'images/logo.png' %}" style="border-radius:50%; width:50%;"></div>
+                    <img alt="Günlük Espri" src="{% static 'images/logo.png' %}" style="border-radius:50%; width:50%;"></div>
                 <div class="col-12 px-0">
                     <div class="w-100">
                         <div class="full-map short-map" id="map"></div>
@@ -28,32 +27,12 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-9">
-                <div class="widget heading_space text-md-start" style="padding: 15px 18px;margin-bottom: 10px;">
-                    <h4 class="darkcolor" style="margin-top:5px;">ozanxg</h4>
-                    <p style="margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit. Curabitur quis urna nulla. Suspendisse potenti. Duis suscipit ultrices maximus. </p>
-                </div>
-                <div class="widget heading_space text-md-start" style="padding: 15px 18px;margin-bottom: 10px;">
-                    <h4 class="darkcolor" style="margin-top:5px;">ozanxg</h4>
-                    <p style="margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit. Curabitur quis urna nulla. Suspendisse potenti. Duis suscipit ultrices maximus. </p>
-                </div>
-                <div class="widget heading_space text-md-start" style="padding: 15px 18px;margin-bottom: 10px;">
-                    <h4 class="darkcolor" style="margin-top:5px;">ozanxg</h4>
-                    <p style="margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit. Curabitur quis urna nulla. Suspendisse potenti. Duis suscipit ultrices maximus. </p>
-                </div>
-                <div class="widget heading_space text-md-start" style="padding: 15px 18px;margin-bottom: 10px;">
-                    <h4 class="darkcolor" style="margin-top:5px;">ozanxg</h4>
-                    <p style="margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit. Curabitur quis urna nulla. Suspendisse potenti. Duis suscipit ultrices maximus. </p>
-                </div>
-                <div class="widget heading_space text-md-start" style="padding: 15px 18px;margin-bottom: 10px;">
-                    <h4 class="darkcolor" style="margin-top:5px;">ozanxg</h4>
-                    <p style="margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit. Curabitur quis urna nulla. Suspendisse potenti. Duis suscipit ultrices maximus. </p>
-                </div>
+              {% include 'partials/tweet_list.html' %}
             </div>
         </div>
     </div>
 </section>
 <!-- Services us ends -->
-{% comment %} {% Footer %} {% endcomment %}
 
 
 </body>
