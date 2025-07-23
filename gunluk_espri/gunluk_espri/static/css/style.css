@@ -1857,9 +1857,9 @@ ul.links li a::before,
 }
 
 .navbar-brand {
-    margin: 16px 0;
+    margin: 10px 0;
     padding: 0;
-    width: 90px;
+    width: 110px;
     position: relative;
 }
 
