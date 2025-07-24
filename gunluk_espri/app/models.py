@@ -3,6 +3,7 @@ import datetime
 import time
 from datetime import datetime, date, time, timedelta
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -14,8 +15,7 @@ def return_date_time():
 class Profile(models.Model):
 
     user            = models.OneToOneField(User, null=True, on_delete=models.CASCADE, blank=True,verbose_name="User Model", related_name='access_profile')
-    name            = models.CharField(max_length=200, null=True, blank=True,verbose_name="Profile Name")
-    surname         = models.CharField(max_length=200, null=True, blank=True,verbose_name="Profile Surname")
+    display_name    = models.CharField(max_length=200, null=True, blank=True,verbose_name="Display Name")
     description     = models.CharField(max_length=150, null=True, blank=True,verbose_name="Profile Description")
     email           = models.EmailField(max_length=200, null=True, blank=False)
     date_created    = models.DateTimeField(default=return_date_time, verbose_name='Profile Creation Date',null=True, blank=True,)
@@ -42,3 +42,32 @@ class Tweet(models.Model):
 
     def __str__(self):
         return self.content
+
+    @property
+    def score(self):
+        hours_ago = (datetime.now().date() - self.create_date).days * 24
+        like_count = self.likes.count()
+        return (self.order or 0) + (like_count * 2) - (hours_ago * 0.2)
+
+
+class Like(models.Model):
+    tweet           = models.ForeignKey(Tweet, on_delete=models.CASCADE, related_name="likes")
+    profile         = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    liked_at        = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("tweet", "profile")  # Aynı kişi aynı tweeti sadece bir kez beğenebilir
+
+    def __str__(self):
+        return f"{self.profile.user.username} liked: {self.tweet.content[:30]}"
+
+
+class Comment(models.Model):
+    tweet           = models.ForeignKey(Tweet, on_delete=models.CASCADE, related_name="comments")
+    profile         = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    content         = models.TextField()
+    created_at      = models.DateTimeField(auto_now_add=True)
+    active          = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.profile.user.username}: {self.content[:30]}"

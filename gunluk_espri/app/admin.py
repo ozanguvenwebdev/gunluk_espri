@@ -10,5 +10,8 @@ class AdminTweet(admin.ModelAdmin):
 admin.site.register(Tweet,AdminTweet)
 
 class AdminProfile(admin.ModelAdmin):
-    list_display = ('name','surname','user','email')
+    list_display = ('display_name','user','email')
 admin.site.register(Profile, AdminProfile)
+
+admin.site.register(Like)
+admin.site.register(Comment)
